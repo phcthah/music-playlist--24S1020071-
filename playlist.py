@@ -5,6 +5,7 @@ def main():
     print("1. Hiển thị danh sách bài hát")
     print("2. Thêm bài hát")
     print("3. Thoát")
+    
 # Danh sách bài hát toàn cục
 songs = []
 def add_song(title, artist, duration):
@@ -16,6 +17,7 @@ def add_song(title, artist, duration):
     songs.append(song)
     print(f"Đã thêm bài hát: {title} - {artist} ({duration} giây)")
 add_song("Lạc Trôi", "Sơn Tùng MTP", 240)
+
 # Xem danh sách phát
 def view_playlist():
     if not songs:
@@ -24,3 +26,13 @@ def view_playlist():
         print("Danh sách phát:")
         for i, song in enumerate(songs, 1):
             print(f"{i}. {song['title']} - {song['artist']} ({song['duration']} giây)")
+
+# Tìm bài hát theo ca sĩ
+def search_by_artist(artist_name):
+    found = False
+    for song in songs:
+        if song['artist'].lower() == artist_name.lower():
+            print(f"{song['title']} - {song['artist']} ({song['duration']} giây)")
+            found = True
+    if not found:
+        print(f"Không tìm thấy bài hát nào của ca sĩ: {artist_name}")
