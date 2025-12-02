@@ -16,3 +16,11 @@ def add_song(title, artist, duration):
     songs.append(song)
     print(f"Đã thêm bài hát: {title} - {artist} ({duration} giây)")
 add_song("Lạc Trôi", "Sơn Tùng MTP", 240)
+# Xem danh sách phát
+def view_playlist():
+    if not songs:
+        print("Danh sách phát trống.")
+    else:
+        print("Danh sách phát:")
+        for i, song in enumerate(songs, 1):
+            print(f"{i}. {song['title']} - {song['artist']} ({song['duration']} giây)")
